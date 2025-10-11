@@ -101,65 +101,84 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero / Sobre Section */}
+      {/* Hero / Sobre Section - Mantendo o fundo claro original */}
       <header id="sobre" className="relative bg-[#f0ead6] text-gray-900 pt-24 w-full">
-        <div className="container mx-auto px-4 sm:px-6 py-24 flex flex-col md:flex-row items-center justify-between gap-8">
-          {/* Texto */}
-          <div className="md:w-1/2 space-y-6">
-            <h1 className="text-3xl sm:text-5xl font-bold">
-              <span className="whitespace-nowrap">Olá, me chamo Jonas Lino</span>
-            </h1>
+        {/* Container Principal do Conteúdo */}
+        {/* No mobile (sem prefixo), o layout é flex-col e centralizado o texto (text-center) */}
+        <div className="container mx-auto px-4 sm:px-6 py-24 flex flex-col items-center gap-12 text-center md:flex-row md:justify-between md:text-left">
 
-            <h2 className="text-xl sm:text-3xl font-semibold">
-              Analista de Sistemas e BI
-            </h2>
-            <p className="text-sm sm:text-lg text-gray-700 leading-relaxed">
-              Transformo dados em insights visuais e dashboards interativos. Especializado em Power BI e
-              soluções de análise de dados modernas.
-            </p>
-
-            {/* Botões */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-4">
-              <button
-                onClick={() => scrollToSection("projetos")}
-                className="bg-yellow-400 text-black px-4 py-2 rounded-lg font-semibold hover:bg-yellow-500 transition-colors"
-              >
-                Ver Dashboards
-              </button>
-              <a
-                href="/pdf/Francisco Jonas Pereira Lino.pdf"
-                download
-                className="bg-green-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-green-700 transition-colors"
-              >
-                Baixar Currículo
-              </a>
-              <a
-                href="https://github.com/JonasLino"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-gray-800 text-white px-4 py-2 rounded-lg font-semibold hover:bg-gray-700 transition-colors"
-              >
-                GitHub
-              </a>
-              <a
-                href="https://www.linkedin.com/in/jonaslino/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-blue-700 text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-600 transition-colors"
-              >
-                LinkedIn
-              </a>
-            </div>
-          </div>
-
-          {/* Imagem */}
-          <div className="md:w-1/2 flex justify-center mt-6 md:mt-0">
+          {/* Imagem de Perfil (Posicionada no topo no Mobile, lado a lado no Desktop) */}
+          {/* A ordem é controlada por 'order-1' e 'order-2' */}
+          <div className="flex justify-center order-1 md:order-2 md:w-1/2">
             <div className="w-32 h-32 sm:w-56 sm:h-56 rounded-full overflow-hidden shadow-2xl border-4 border-[#ffffff]">
               <img
                 src="/images/perfil/perfil.png"
                 alt="Jonas Lino"
                 className="object-cover w-full h-full"
               />
+            </div>
+          </div>
+
+          {/* Texto e Botões - Centralizados no mobile */}
+          <div className="space-y-6 order-2 md:order-1 md:w-1/2">
+
+            {/* Título Principal */}
+            <h1 className="text-3xl sm:text-5xl font-bold">
+              <span className="whitespace-nowrap">Olá, me chamo Jonas Lino</span>
+            </h1>
+
+            {/* Subtítulo */}
+            <h2 className="text-xl sm:text-3xl font-semibold">
+              Analista de Sistemas e BI
+            </h2>
+
+            {/* Descrição */}
+            <p className="text-sm sm:text-lg text-gray-700 leading-relaxed max-w-lg mx-auto md:mx-0">
+              Transformo dados em insights visuais e dashboards interativos. Especializado em Power BI e
+              soluções de análise de dados modernas.
+            </p>
+
+            {/* Botões - Stacked Verticalmente no mobile (w-full) */}
+            {/* No mobile (sem prefixo), é flex-col. No desktop (sm:flex-row), volta a ser lado a lado */}
+            {/* Usei 'max-w-sm mx-auto' para limitar a largura e centralizar os botões no mobile */}
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-4 max-w-sm mx-auto md:mx-0">
+
+              {/* Botão Ver Dashboards - w-full força largura total no mobile */}
+              <button
+                onClick={() => scrollToSection("projetos")}
+                className="w-full sm:w-auto bg-yellow-400 text-black px-4 py-3 rounded-lg font-semibold hover:bg-yellow-500 transition-colors"
+              >
+                Ver Dashboards
+              </button>
+
+              {/* Botão Baixar Currículo - w-full força largura total no mobile */}
+              <a
+                href="/pdf/Francisco Jonas Pereira Lino.pdf"
+                download
+                className="w-full sm:w-auto bg-green-600 text-white px-4 py-3 rounded-lg font-semibold text-center hover:bg-green-700 transition-colors"
+              >
+                Baixar Currículo
+              </a>
+
+              {/* GitHub - w-full força largura total no mobile */}
+              <a
+                href="https://github.com/JonasLino"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto bg-gray-800 text-white px-4 py-3 rounded-lg font-semibold text-center hover:bg-gray-700 transition-colors"
+              >
+                GitHub
+              </a>
+
+              {/* LinkedIn - w-full força largura total no mobile */}
+              <a
+                href="https://www.linkedin.com/in/jonaslino/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto bg-blue-700 text-white px-4 py-3 rounded-lg font-semibold text-center hover:bg-blue-600 transition-colors"
+              >
+                LinkedIn
+              </a>
             </div>
           </div>
         </div>
