@@ -103,29 +103,58 @@ export default function Home() {
 
       {/* Hero / Sobre Section */}
       <header id="sobre" className="relative bg-[#f0ead6] text-gray-900 pt-24 w-full">
-        <div className="container mx-auto px-4 py-24 flex flex-col md:flex-row items-center gap-8">
+        <div className="container mx-auto px-4 sm:px-6 py-24 flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Texto */}
-          <div className="md:w-1/2 space-y-4 md:space-y-6">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold">
+          <div className="md:w-1/2 space-y-6">
+            <h1 className="text-3xl sm:text-5xl font-bold">
               <span className="whitespace-nowrap">Olá, me chamo Jonas Lino</span>
             </h1>
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold">
+
+            <h2 className="text-xl sm:text-3xl font-semibold">
               Analista de Sistemas e BI
             </h2>
-            <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed">
+            <p className="text-sm sm:text-lg text-gray-700 leading-relaxed">
               Transformo dados em insights visuais e dashboards interativos. Especializado em Power BI e
               soluções de análise de dados modernas.
             </p>
 
             {/* Botões */}
-            <div className="flex flex-wrap justify-center sm:justify-start gap-3 sm:gap-4 mt-4">
-              {/* Seus botões aqui */}
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-4">
+              <button
+                onClick={() => scrollToSection("projetos")}
+                className="bg-yellow-400 text-black px-4 py-2 rounded-lg font-semibold hover:bg-yellow-500 transition-colors"
+              >
+                Ver Dashboards
+              </button>
+              <a
+                href="/pdf/Francisco Jonas Pereira Lino.pdf"
+                download
+                className="bg-green-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-green-700 transition-colors"
+              >
+                Baixar Currículo
+              </a>
+              <a
+                href="https://github.com/JonasLino"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-gray-800 text-white px-4 py-2 rounded-lg font-semibold hover:bg-gray-700 transition-colors"
+              >
+                GitHub
+              </a>
+              <a
+                href="https://www.linkedin.com/in/jonaslino/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-blue-700 text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-600 transition-colors"
+              >
+                LinkedIn
+              </a>
             </div>
           </div>
 
           {/* Imagem */}
           <div className="md:w-1/2 flex justify-center mt-6 md:mt-0">
-            <div className="w-36 h-36 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full overflow-hidden shadow-2xl border-4 border-[#ffffff]">
+            <div className="w-32 h-32 sm:w-56 sm:h-56 rounded-full overflow-hidden shadow-2xl border-4 border-[#ffffff]">
               <img
                 src="/images/perfil/perfil.png"
                 alt="Jonas Lino"
@@ -214,28 +243,33 @@ export default function Home() {
       {/* Seção Habilidades */}
       <section id="habilidades" className="bg-white w-full container mx-auto px-4 py-16">
         <h2 className="text-3xl font-bold mb-12 text-gray-900 text-center">Habilidades</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 sm:gap-8 justify-items-center">
-          {[
-            { src: "/images/skills/powerbi.png", label: "Power BI" },
-            { src: "/images/skills/sqlserver.png", label: "SQL Server" },
-            { src: "/images/skills/mysql.png", label: "MySQL" },
-            { src: "/images/skills/excel.png", label: "Excel" },
-            { src: "/images/skills/figma.png", label: "Figma" },
-            { src: "/images/skills/github.png", label: "GitHub" },
-          ].map((skill) => (
-            <div
-              key={skill.label}
-              className="flex flex-col items-center justify-center bg-gray-100 w-32 h-32 sm:w-32 sm:h-32 md:w-32 md:h-32 p-4 rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300"
-            >
-              <img src={skill.src} alt={skill.label} className="w-12 h-12 mb-2" />
-              <span className="mt-2 font-semibold text-gray-800 text-center text-sm sm:text-base">
-                {skill.label}
-              </span>
-            </div>
-          ))}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-8 justify-items-center">
+          <div className="flex flex-col items-center bg-gray-100 p-6 rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300">
+            <img src="/images/skills/powerbi.png" alt="Power BI" className="w-12 h-12 mb-2" />
+            <span className="mt-2 font-semibold text-gray-800">Power BI</span>
+          </div>
+          <div className="flex flex-col items-center bg-gray-100 p-6 rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300">
+            <img src="/images/skills/sqlserver.png" alt="SQL Server" className="w-12 h-12 mb-2" />
+            <span className="mt-2 font-semibold text-gray-800">SQL Server</span>
+          </div>
+          <div className="flex flex-col items-center bg-gray-100 p-6 rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300">
+            <img src="/images/skills/mysql.png" alt="MySQL" className="w-12 h-12 mb-2" />
+            <span className="mt-2 font-semibold text-gray-800">MySQL</span>
+          </div>
+          <div className="flex flex-col items-center bg-gray-100 p-6 rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300">
+            <img src="/images/skills/excel.png" alt="Excel" className="w-12 h-12 mb-2" />
+            <span className="mt-2 font-semibold text-gray-800">Excel</span>
+          </div>
+          <div className="flex flex-col items-center bg-gray-100 p-6 rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300">
+            <img src="/images/skills/figma.png" alt="Figma" className="w-12 h-12 mb-2" />
+            <span className="mt-2 font-semibold text-gray-800">Figma</span>
+          </div>
+          <div className="flex flex-col items-center bg-gray-100 p-6 rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300">
+            <img src="/images/skills/github.png" alt="GitHub" className="w-12 h-12 mb-2" />
+            <span className="mt-2 font-semibold text-gray-800">GitHub</span>
+          </div>
         </div>
       </section>
-
 
       {/* Modal de Imagem */}
       {modalImage && (
